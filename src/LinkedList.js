@@ -1,4 +1,4 @@
-class LinkedList {
+export class LinkedList {
     constructor() {
         this.head = null;
     }
@@ -48,6 +48,34 @@ class LinkedList {
         this.head = this.head.nextNode;
         return popedNode.value;
     }
+    contains(value) {
+        let currNode = this.head;
+        while (currNode !== null) {
+            if (currNode.value === value) return true;
+            currNode = currNode.nextNode;
+        }
+        return false;
+    }
+    findIndex(value) {
+        let currNode = this.head;
+        let index = 0;
+        while (currNode !== null) {
+            if (currNode.value === value) return index;
+            index++;
+            currNode = currNode.nextNode;
+        }
+        return -1;
+    }
+    toString() {
+        let currNode = this.head;
+        let stringData = '';
+        while (currNode !== null) {
+            stringData += `(${currNode.value})->`;
+            if (currNode.nextNode === null) break;
+            currNode = currNode.nextNode;
+        }
+        return stringData + `null`;
+    }
 }
 class Node {
     constructor(value = null, nextNode = null) {
@@ -55,10 +83,3 @@ class Node {
         this.nextNode = nextNode;
     }
 }
-
-//  let size = this.size() - 1;
-//  while (size > 0 && currNode !== null) {
-//      currNode = currNode.nextNode;
-//      index--;
-//  }
-//  currNode.nextNode = null;
