@@ -71,10 +71,9 @@ export class LinkedList {
         let stringData = '';
         while (currNode !== null) {
             stringData += `(${currNode.value})->`;
-            if (currNode.nextNode === null) break;
             currNode = currNode.nextNode;
         }
-        return stringData + `null`;
+        return stringData + 'null';
     }
 }
 class Node {
